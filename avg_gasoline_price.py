@@ -18,8 +18,7 @@ try:
     df['mes'] = pd.to_numeric(df['mes'], errors='coerce')
     df['fecha'] = pd.to_datetime(df['periodo'].astype(str) + '-' + df['mes'].astype(str) + '-01')
     # Use the last 2 years
-    # Fix: Use the first day of the current month for comparison, since data is monthly
-    # Use the latest available date in the dataset as the end date
+    
     latest_date = df['fecha'].max()
     two_years_ago = latest_date - pd.DateOffset(years=2)
     print(f"latest_date in dataset: {latest_date}")
